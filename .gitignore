@@ -23,11 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Raw uncompressed design source files (>1.5GB uncompressed design assets)
-1_frames/
-Club House & Play Area/
-Exterior/
-Hero intro/
-Interiors/
-Kurra/
-Layouts/
+# Raw uncompressed design source files at repository root ONLY (do not match public/kurra or public/layouts)
+/1_frames/
+/Club House & Play Area/
+/Exterior/
+/Hero intro/
+/Interiors/
+/Kurra/
+/Layouts/
