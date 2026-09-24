@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Avenir Next', 'Helvetica Neue', 'Inter', 'Manrope', sans-serif;
+  --font-serif: 'Avenir Next', 'Helvetica Neue', 'Inter', 'Manrope', sans-serif;
+  --font-sans: 'Manrope', 'Inter', -apple-system, sans-serif;
+
+  --color-ivory: #f4f2ec;
+  --color-champagne: #c8a97e;
+  --color-champagne-light: #e8d7be;
+  --color-slate-grey: #a3a8b2;
+  --color-dark-obsidian: #08090a;
+  --color-dark-surface: #0e0f12;
+}
+
+:root {
+  --bg-primary: #08090a;
+  --bg-secondary: #0c0d10;
+  --bg-card: rgba(14, 15, 17, 0.82);
+  
+  --text-ivory: #f4f2ec;
+  --text-grey: #a3a8b2;
+  --text-muted: #6b7280;
+
+  --accent-bronze: #c8a97e;
+  --accent-champagne: #e8d7be;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(200, 169, 126, 0.3);
+
+  --font-display: 'Avenir Next', 'Helvetica Neue', 'Inter', 'Manrope', sans-serif;
+  --font-sans: 'Manrope', 'Inter', sans-serif;
+
+  --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-ivory);
+  font-family: 'Manrope', 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display Font Classes */
+.font-display {
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Inter', 'Manrope', sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.font-sans {
+  font-family: 'Manrope', 'Inter', sans-serif;
+}
+
+/* Smooth Scroll Setup */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 169, 126, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-bronze);
+}
+
+/* Subtle Champagne Text Accent */
+.text-bronze {
+  color: var(--accent-bronze);
+}
+
+.champagne-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f2ec 60%, #c8a97e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Architectural Pill Button */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  background: rgba(244, 242, 236, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f4f2ec;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.btn-pill:hover {
+  background: rgba(244, 242, 236, 0.15);
+  border-color: rgba(200, 169, 126, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn-pill-bronze {
+  background: var(--accent-bronze);
+  border-color: var(--accent-bronze);
+  color: #08090a;
+  font-weight: 600;
+}
+
+.btn-pill-bronze:hover {
+  background: #e8d7be;
+  border-color: #e8d7be;
+  color: #08090a;
+  box-shadow: 0 10px 30px rgba(200, 169, 126, 0.35);
+}
+
+/* Floating Architectural Card with Indirect Ambient Illumination (NO BORDERS) */
+.arch-float-card {
+  position: relative;
+  background: rgba(14, 15, 17, 0.85);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
+  transition: all 0.5s var(--ease-cinematic);
+  border: none !important;
+}
+
+.arch-float-card::before {
+  content: "";
+  position: absolute;
+  inset: -35px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 126, 0.14),
+    rgba(200, 169, 126, 0.03) 40%,
+    transparent 70%
+  );
+  filter: blur(35px);
+  z-index: -1;
+  border-radius: 24px;
+  opacity: 0.7;
+  transition: opacity 0.5s var(--ease-cinematic);
+  pointer-events: none;
+}
+
+.arch-float-card:hover {
+  transform: translateY(-4px);
+  background: rgba(18, 20, 24, 0.92);
+  box-shadow: 0 32px 85px rgba(0, 0, 0, 0.8);
+}
+
+.arch-float-card:hover::before {
+  opacity: 1;
+}
+
+.arch-img-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.arch-img-container img {
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.arch-float-card:hover .arch-img-container img {
+  transform: scale(1.025);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
